@@ -1,6 +1,6 @@
 /*
- * Написать функцию, которая осуществляет поиск элемента в сортированном массиве
- * по алгоритму бинарного поиска. Если элемент найден - вернуть true, иначе false
+ * Задача: Написать функцию, которая осуществляет поиск элемента в сортированном
+ * массиве по алгоритму бинарного поиска.
  */
 
 const assert = require('assert');
@@ -12,7 +12,7 @@ const testArray = [
 ]
 
 
-// 1 - Решение в лоб :)
+// 1 - Решение в лоб :) (возвращает true если число найдено, иначе - false)
 const stupidBinarySearch = (num, numList) => {
     let list = numList.slice()
     let index = Number.parseInt(list.length / 2)
@@ -33,6 +33,7 @@ const stupidBinarySearch = (num, numList) => {
 }
 
 // 2 - Решение с использованием рекурсии
+// (возвращает true если число найдено, иначе - false)
 const recursiveBinarySearch = (num, numList) => {
 
     const search = (i, list) => {
@@ -52,13 +53,31 @@ const recursiveBinarySearch = (num, numList) => {
     return search(index, numList)
 }
 
+// 3 - Решение с возвратом индекса найденного элемента
+const customIndexOf = (num, numList) => {
+    let low = 0
+    let high = numList.length - 1
+
+    while (low <= high) {
+        let index = Number.parseInt((low + high) / 2)
+        let item = numList[index]
+
+        if (item === num) { return index }
+
+        if ( item > num) {  high = index - 1 }
+        else { low = index + 1 }
+    }
+
+    return -1
+}
+
 /*******************************************************************************
 ==================================>TESTS<=======================================
 *******************************************************************************/
 
 // Testing stupidBinarySearch
 for (var i = 0; i < 50; i++) {
-    console.log('Result:', stupidBinarySearch(i, testArray))
+    // console.log('Result:', stupidBinarySearch(i, testArray))
     assert.equal(
         stupidBinarySearch(i, testArray),
         testArray.indexOf(i) > -1
@@ -67,9 +86,18 @@ for (var i = 0; i < 50; i++) {
 
 // Testing recursiveBinarySearch
 for (var i = 0; i < 50; i++) {
-    console.log('Result:', recursiveBinarySearch(i, testArray))
+    // console.log('Result:', recursiveBinarySearch(i, testArray))
     assert.equal(
         recursiveBinarySearch(i, testArray),
+        testArray.indexOf(i) > -1
+    )
+}
+
+// Testing customIndexOf
+for (var i = 0; i < 50; i++) {
+    // console.log('Result:', customIndexOf(i, testArray))
+    assert.equal(
+        customIndexOf(i, testArray) > -1,
         testArray.indexOf(i) > -1
     )
 }
