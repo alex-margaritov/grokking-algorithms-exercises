@@ -10,6 +10,7 @@ const testArray = [
     43, 23, 30, 94, 46
 ]
 
+// Сортировка чисел по убыванию
 const descentSort = (list) => {
     const result = []
     const innerList = list.slice()
