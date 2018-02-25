@@ -1,0 +1,29 @@
+{
+  "name": "grokking-algorithms-exercises",
+  "version": "1.0.0",
+  "description": "Grokking algorithms book tasks solutions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuman/grokking-algorithms-exercises.git"
+  },
+  "keywords": [
+    "grokking",
+    "algorithms",
+    "solution"
+  ],
+  "author": "xuman",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/xuman/grokking-algorithms-exercises/issues"
+  },
+  "homepage": "https://github.com/xuman/grokking-algorithms-exercises#readme",
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0"
+  }
+}
