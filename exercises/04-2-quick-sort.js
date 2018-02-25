@@ -11,26 +11,26 @@ const testArray = [
   81, 12, 1, 16, 98, 25, 34, 80, 30, 59, 92, 60
 ];
 
-const quickSort = arr => {
+const quickSort = (arr) => {
   if (arr.length < 2) return arr;
 
   const pivotIndex = Math.floor(Math.random() * arr.length);
-  const pivot = arr[ pivotIndex ];
+  const pivot = arr[pivotIndex];
   const noPivotArr = arr.slice();
   noPivotArr.splice(pivotIndex, 1);
 
   const less = noPivotArr.filter(item => item <= pivot);
   const more = noPivotArr.filter(item => item > pivot);
   return [...quickSort(less), pivot, ...quickSort(more)];
-}
+};
 
-/*******************************************************************************
+/*
 ==================================>TESTS<=======================================
-*******************************************************************************/
+*/
 
 // console.log(quickSort(testArray));
 // console.log(testArray.sort((a, b) => a - b));
 assert.deepEqual(
-    quickSort(testArray),
-    testArray.sort((a, b) => a - b)
-)
+  quickSort(testArray),
+  testArray.sort((a, b) => a - b)
+);
